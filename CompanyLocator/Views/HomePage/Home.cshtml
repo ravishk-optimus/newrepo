@@ -1,0 +1,79 @@
+﻿@model List<CompanyLocator.Models.Company>
+@{
+    /**/
+
+    ViewBag.Title = "Home";
+}
+
+<head>
+ 
+   
+    <style>
+
+
+
+        table, th, td {
+            border: 1px solid black;
+            font-family: bree serif;
+           position:center;
+        }
+        .aParent div {
+            float: left;
+            clear: none;
+        }
+        p {
+        background-color:lightblue
+        }
+        h2 {
+            
+            font-family: bree serif;
+            font-size: 300%;
+        }
+    </style>
+</head>
+<body style="background-color:#49E1EF" >
+           <center>
+    <div  >
+            <p ><b><h2><br />CompLocator Application<br />  </h2></b></p></div></center><br />
+    
+   
+        @using (Html.BeginForm())
+        {<row style="align-content:center;">
+    
+       <img src="~/images/map.gif" alt="Animation " height="320" width="480">
+        
+            @Html.Label("Enter Location:")
+            @Html.TextBox("locationBox")
+            <span> <button type="submit">Search</button></span>
+        
+    
+
+</row>
+    <br />
+    <br />
+    <br />
+
+    if (Model != null)
+    {
+        <table >
+
+            <tr>
+                <th align="center">Name</th>
+                <th align="center">Address</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td align="left"><b>@item.Name</b></td>
+                    <td align="center">@item.Address</td>
+                </tr>
+            }
+        </table>
+
+    }
+
+            }
+
+
+        
+    </body>
